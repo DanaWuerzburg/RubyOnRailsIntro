@@ -1,8 +1,7 @@
 class Peach
-
-def make_it_green
-  @color = :green
-end
+  def make_it_green
+    @color = :green
+  end
 end
 
 p = Peach.new
