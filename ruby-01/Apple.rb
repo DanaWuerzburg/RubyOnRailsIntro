@@ -5,7 +5,7 @@ class Apple
 
   def initialize(color)
     @color = color if color
-    @@number_of_apples += 1
+    @@number_of_app(Please provide a comma-separated list)les += 1
   end
   def Apple.count
     @@number_of_apples
