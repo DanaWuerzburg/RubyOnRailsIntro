@@ -1,5 +1,5 @@
 require "rspec"
-require "./person.rb"
+require "../person.rb"
 
 describe "Person initialization" do
 

@@ -1,6 +1,6 @@
 require "rspec"
 
-require "./game.rb"
+require "../game.rb"
 describe Game do
  describe "#score" do
     it "returns 0 for all gutter game" do
