@@ -1,3 +1,24 @@
+#Procs allow you to store code as objects.
+my_proc =Proc.new {|a| puts "Parameter is #{a}"}
+my_proc.call(99)
+
+#procs can be provided to methods as the last argument
+def take_block(x,&block)
+  puts block.class
+  x.times {|i| block [i,i*i]}   #other syntax for call
+end
+
+
+take_block(3) { |n,s| puts "#{n} squared is #{s}"}
+
+# they can be stored in variables and passed to methods
+# expecting a block
+my_proc =proc{|n| print n, "... "}
+(1..3).each(&my_proc)
+('a'..'h').each(&my_proc)
+
+#procs are not blocks, but can be converted to each other with &.
+
 
 # yield calls a provided block.
 def method_with_block
