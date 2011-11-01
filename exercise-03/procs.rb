@@ -33,8 +33,9 @@ result = method_with_block { 1 + 2 }
 puts "result from method_with_block: #{result}"
 
 #you can also assign the provided block to a variable.
-def method_with_block_parameter &block
-  block.call("called from method")
+def method_with_block_parameter &provided_block_proc
+  puts provided_block_proc.class
+  provided_block_proc.call("called from method")
   yield "called from method with yield"
 end
 
@@ -73,19 +74,23 @@ puts html &content_proc
 # in fact, procs are closures!
 # that is, they preserve the variable bindings from the place where they are defined.
 
-def create_counter
-  n = 0
-  proc { n+=1 }
+
+   class X
+     @@n = 0
+
+def self.create_counter
+  proc { @@n+=1 }
 end
+     end
 
-first_counter =create_counter
+first_counter =X.create_counter
 puts "counter 1: #{first_counter.call}"
 puts "counter 1: #{first_counter.call}"
 
-second_counter =create_counter
+second_counter =X.create_counter
 puts "counter 2: #{second_counter.call}"
 puts "counter 1: #{first_counter.call}"
-
+   xx
 
 class ProcContainer
   attr_accessor :increment

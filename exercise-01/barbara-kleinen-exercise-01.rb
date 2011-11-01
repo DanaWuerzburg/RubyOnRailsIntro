@@ -39,7 +39,7 @@ class Person
   end
 
   def match_hobbies(otherPerson)
-    return hobbies.map(&:capitalize) & otherPerson.hobbies.map(&:capitalize)
+    return hobbies.map(&:capitalize) & otherPerson.hobbies.map{|x| x.capitalize}  # the first variant of capitalize is a short for the second
   end
 
 end
